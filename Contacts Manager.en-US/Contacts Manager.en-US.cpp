@@ -97,7 +97,7 @@ int main() {
             << "Enter option: ";
         getline(cin, command);
 
-        if (command == "1") {
+        if (command == "1" || command == "Add Contact" || command == "Add") {
             line_number = 2;
             while (true) {
                 cell = string("A") + to_string(line_number);
@@ -179,7 +179,7 @@ int main() {
                 Sleep(10);
             }
         }
-        else if (command == "2") {
+        else if (command == "2" || command == "Search Contact" || command == "Search") {
             system("cls||clear");
             cout << "Enter contact name to search: ";
             getline(cin, search_name);
@@ -218,7 +218,7 @@ int main() {
                 Sleep(10);
             }
         }
-        else if (command == "3") {
+        else if (command == "3" || command == "Delete Contact" || command == "Delete") {
             system("cls||clear");
             while (true) {
                 cout << "Enter contact name to delete, or type 'list' to show all\n>>>";
@@ -311,7 +311,7 @@ int main() {
                 }
             }
         }
-        else if (command == "4") {
+        else if (command == "4" || command == "Exit" || command == "exit") {
             break;
         }
     }
