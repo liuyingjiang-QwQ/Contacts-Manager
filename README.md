@@ -1,6 +1,15 @@
+
 ## Other languages 其他语言  
+### README languages 自述文件语言
 Chinese:[README.zh-CN](README.zh-CN.md)  
+  
 中文：[README.zh-CN](README.zh-CN.md)
+### Projects languages 项目语言
+English:[English Version](https://github.com/liuyingjiang-QwQ/Contacts-Manager/tree/English) (`English` branch)  
+Chinese:[Chinese Version](https://github.com/liuyingjiang-QwQ/Contacts-Manager/tree/Chinese) (`Chinese` branch)  
+
+英语：[英语版本](https://github.com/liuyingjiang-QwQ/Contacts-Manager/tree/English) (`English` 分支内)   
+中文：[中文版本](https://github.com/liuyingjiang-QwQ/Contacts-Manager/tree/Chinese) (`Chinese` 分支内)  
 ## Overview  
 Hello! I'm a student from China who is currently learning C++. This is a simple project I created while practicing with the xlnt library.  
 It implements an address book system with Excel file read/write capabilities using xlnt.
@@ -22,16 +31,17 @@ catch (const std::exception& e) {
 
 - Interactive console interface with these commands:
   - `list`: Show all contacts
-  - `add`: Add new contact
-  - `search`: Find contact by name
-  - `delete`: Remove contact
+  - `Add Contact`: Add new contact
+  - `Search Contact`: Find contact by name
+  - `Delete Contact`: Remove contact
 - Auto-saves after every operation to prevent data loss.
 
 ## Getting Started  
-1. Clone the repository
-2. Open "Memo_from_Friends.sln" in Visual Studio
-3. Build and run the project
-4. The program will create "Memo.xlsx" in the same directory if it doesn't exist
+1. Select your preferred language (en-US or zh-CN)
+2. Clone the repository
+3. Open "Contacts-Manager.en-US.sln" in Visual Studio (If you need the Chinese version, please open "Contacts-Manager.zh-CN.sln”)
+4. Build and run the project
+5. The program will create "Memo.xlsx" in the same directory if it doesn't exist
 
 > ⚠️ Important: This Excel file is the only storage for your contact data. Keep it safe!
 
