@@ -1,8 +1,8 @@
 ## Other languages 其他语言  
 ### README languages 自述文件语言
-Chinese:[README.zh-CN](README.zh-CN.md)  
+English:[README.en-US](README.en-US.md)  
   
-中文：[README.zh-CN](README.zh-CN.md)
+英语：[README.en-US](README.en-US.md)
 ### Projects languages 项目语言
 English:[English Version](https://github.com/liuyingjiang-QwQ/Contacts-Manager/tree/English) (`English` branch)  
 Chinese:[Chinese Version](https://github.com/liuyingjiang-QwQ/Contacts-Manager/tree/Chinese) (`Chinese` branch)  
