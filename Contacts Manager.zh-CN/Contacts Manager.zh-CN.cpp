@@ -88,7 +88,7 @@ int main() {
 			<< "╚══════════════════════╝\n"
 			<< "输入选项：";
 		getline(cin, order);
-		if (order == "1") {
+		if (order == "1" || order == "写入内容" || order == "写入" || order == "写入联系人") {
 			line_number = 2;
 			while (true) {
 				cell = string("A") + to_string(line_number);
@@ -159,7 +159,7 @@ int main() {
 				Sleep(10);
 			}
 		}
-		else if (order == "2") {
+		else if (order == "2" || order == "查询" || order == "查询联系人") {
 			system("cls||clear");
 			cout << "输入你要寻找的联系人：";
 			getline(cin, search_name);
@@ -197,7 +197,7 @@ int main() {
 				Sleep(10);
 			}
 		}
-		else if (order == "3") {
+		else if (order == "3" || order == "删除" || order == "删除联系人") {
 			system("cls||clear");
 			while (true) {
 				cout << "输入你要删除的联系人姓名，或输入list列出他/她/它\n>>>";
@@ -222,46 +222,23 @@ int main() {
 							cell = string("E") + to_string(r);
 							cout << "备注：    " << ws.cell(cell).value<string>() << endl;
 							cout << "\n你确定要删除他/她/它吗？\ny.是      n.不是\n>>>";
-							while (true) {
-								getline(cin, order);
-								if (order == "y" || order == "Y") {
-									try {
-										cell = string("A") + to_string(r);
-										ws.cell(cell).value("");
-										cell = string("B") + to_string(r);
-										ws.cell(cell).value("");
-										cell = string("C") + to_string(r);
-										ws.cell(cell).value("");
-										cell = string("D") + to_string(r);
-										ws.cell(cell).value("");
-										cell = string("E") + to_string(r);
-										ws.cell(cell).value("");
-										wb.save("Memo.xlsx");
-										cout << "\n已成功删除联系人！";
-										cout << "\n按下任意按键继续...";
-										while (true) {
-											if (_kbhit()) {
-												break;
-											}
-											Sleep(10);
-										}
-										break;
-									}
-									catch (const xlnt::exception& e) {
-										std::cerr << "\n\nError saving workbook: " << e.what() << std::endl;
-										cout << "\n\n按下任意按键继续...";
-										while (true) {
-											if (_kbhit()) {
-												break;
-											}
-											Sleep(10);
-										}
-										break;
-									}
-								}
-								else if (order == "n" || order == "N") {
-									cout << "已取消删除联系人！";
-									cout << "\n按下任意按键继续...";
+							getline(cin, order);
+							if (order == "y" || order == "Y") {
+								try {
+									// Clear all fields for this contact
+									cell = string("A") + to_string(r);
+									ws.cell(cell).value("");
+									cell = string("B") + to_string(r);
+									ws.cell(cell).value("");
+									cell = string("C") + to_string(r);
+									ws.cell(cell).value("");
+									cell = string("D") + to_string(r);
+									ws.cell(cell).value("");
+									cell = string("E") + to_string(r);
+									ws.cell(cell).value("");
+									wb.save("Memo.xlsx");
+									cout << "\n已成功删除联系人！";
+									cout << "\n按下任意键继续...";
 									while (true) {
 										if (_kbhit()) {
 											break;
@@ -270,11 +247,30 @@ int main() {
 									}
 									break;
 								}
-								else {
-									cout << "输入无效，请重新输入！";
+								catch (const xlnt::exception& e) {
+									std::cerr << "\n\nError saving workbook: " << e.what() << std::endl;
+									cout << "\n\n按下任意键继续...";
+									while (true) {
+										if (_kbhit()) {
+											break;
+										}
+										Sleep(10);
+									}
+									break;
 								}
 							}
-							goto Da_Capo;    //同上（第112行注释）
+							else {
+								cout << "已取消删除联系人";
+								cout << "\n按下任意键继续...";
+								while (true) {
+									if (_kbhit()) {
+										break;
+									}
+									Sleep(10);
+								}
+								break;
+							}
+							goto Da_Capo;
 						}
 					}
 					cout << "未找到此联系人";
@@ -289,7 +285,7 @@ int main() {
 				}
 			}
 		}
-		else if (order == "4") {
+		else if (order == "4" || order == "退出" || order == "Exit" || order == "exit") {
 			break;
 		}
 	}
