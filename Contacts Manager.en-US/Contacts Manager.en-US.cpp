@@ -243,46 +243,22 @@ int main() {
                             cell = string("E") + to_string(r);
                             cout << "Notes:    " << ws.cell(cell).value<string>() << endl;
                             cout << "\nAre you sure you want to delete this contact?\ny.Yes      n.No\n>>>";
-                            while (true) {
-                                getline(cin, command);
-                                if (command == "y" || command == "Y") {
-                                    try {
-                                        // Clear all fields for this contact
-                                        cell = string("A") + to_string(r);
-                                        ws.cell(cell).value("");
-                                        cell = string("B") + to_string(r);
-                                        ws.cell(cell).value("");
-                                        cell = string("C") + to_string(r);
-                                        ws.cell(cell).value("");
-                                        cell = string("D") + to_string(r);
-                                        ws.cell(cell).value("");
-                                        cell = string("E") + to_string(r);
-                                        ws.cell(cell).value("");
-                                        wb.save("Memo.xlsx");
-                                        cout << "\nContact deleted successfully!";
-                                        cout << "\nPress any key to continue...";
-                                        while (true) {
-                                            if (_kbhit()) {
-                                                break;
-                                            }
-                                            Sleep(10);
-                                        }
-                                        break;
-                                    }
-                                    catch (const xlnt::exception& e) {
-                                        std::cerr << "\n\nError saving workbook: " << e.what() << std::endl;
-                                        cout << "\n\nPress any key to continue...";
-                                        while (true) {
-                                            if (_kbhit()) {
-                                                break;
-                                            }
-                                            Sleep(10);
-                                        }
-                                        break;
-                                    }
-                                }
-                                else if (command == "n" || command == "N") {
-                                    cout << "Delete operation canceled!";
+                            getline(cin, command);
+                            if (command == "y" || command == "Y") {
+                                try {
+                                    // Clear all fields for this contact
+                                    cell = string("A") + to_string(r);
+                                    ws.cell(cell).value("");
+                                    cell = string("B") + to_string(r);
+                                    ws.cell(cell).value("");
+                                    cell = string("C") + to_string(r);
+                                    ws.cell(cell).value("");
+                                    cell = string("D") + to_string(r);
+                                    ws.cell(cell).value("");
+                                    cell = string("E") + to_string(r);
+                                    ws.cell(cell).value("");
+                                    wb.save("Memo.xlsx");
+                                    cout << "\nContact deleted successfully!";
                                     cout << "\nPress any key to continue...";
                                     while (true) {
                                         if (_kbhit()) {
@@ -292,9 +268,28 @@ int main() {
                                     }
                                     break;
                                 }
-                                else {
-                                    cout << "Invalid input, please try again!";
+                                catch (const xlnt::exception& e) {
+                                    std::cerr << "\n\nError saving workbook: " << e.what() << std::endl;
+                                    cout << "\n\nPress any key to continue...";
+                                    while (true) {
+                                        if (_kbhit()) {
+                                            break;
+                                        }
+                                        Sleep(10);
+                                    }
+                                    break;
                                 }
+                            }
+                            else {
+                                cout << "Delete operation canceled!";
+                                cout << "\nPress any key to continue...";
+                                while (true) {
+                                    if (_kbhit()) {
+                                        break;
+                                    }
+                                    Sleep(10);
+                                }
+                                break;
                             }
                             goto Da_Capo;
                         }
